@@ -2,18 +2,23 @@
 
 require_once 'modele/modeleUtilisateurs.php';
 
-function afficherConnexion() {
+function afficherConnexion()
+{
   require 'vue/connexion.php';
 }
 
-function afficherInscription() {
+function afficherInscription()
+{
   require 'vue/inscription.php';
 }
 
-function inscrireUtilisateur() {
-  if (!isset($_POST['email']) || !isset($_POST['motDePasse']) ||
+function inscrireUtilisateur()
+{
+  if (
+    !isset($_POST['email']) || !isset($_POST['motDePasse']) ||
     !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) ||
-    !preg_match('/(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W).{8,}/', $_POST['motDePasse'])) {
+    !preg_match('/(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W).{8,}/', $_POST['motDePasse'])
+  ) {
     header('Location: index.php?ressource=/inscription&erreur=Veuillez fournir un courriel et un mot de passe valide.');
     return;
   }
@@ -32,7 +37,8 @@ function inscrireUtilisateur() {
   connecterUtilisateur();
 }
 
-function connecterUtilisateur() {
+function connecterUtilisateur()
+{
   if (!isset($_POST['email']) || !isset($_POST['motDePasse'])) {
     header('Location: index.php?ressource=/connexion&erreur=Veuillez fournir un courriel et un mot de passe valide.');
     return;
@@ -54,7 +60,8 @@ function connecterUtilisateur() {
   header('Location: index.php?ressource=/');
 }
 
-function deconnecterUtilisateur() {
+function deconnecterUtilisateur()
+{
   unset($_SESSION['utilisateur']);
   session_destroy();
 

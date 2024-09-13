@@ -14,6 +14,11 @@
         <li class="nav-item">
           <a class="nav-link <?php NavClass("/livres"); ?>" href="index.php?ressource=/livres">Livres</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link <?php NavClass("/test"); ?>" href="index.php?ressource=/test">Test</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <?php NavClass("/nousContacter"); ?>" href="index.php?ressource=/nousContacter">Nous Contacter</a>
       </ul>
       <!-- Éléments du menu à droite -->
       <ul class="navbar-nav">
@@ -31,7 +36,9 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="index.php?ressource=/utilisateurs/moi/livres">Vos livres</a></li>
-              <li><hr class="dropdown-divider"></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
               <li><a class="dropdown-item" href="index.php?ressource=/deconnexion">Déconnexion</a></li>
             </ul>
           </li>
